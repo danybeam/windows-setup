@@ -1,0 +1,28 @@
+{
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+  "git.autofetch": true,
+  "C_Cpp.updateChannel": "Insiders",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "java.configuration.checkProjectSettingsExclusions": false,
+  "python.jediEnabled": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "editor.fontFamily": "Cascadia Code, Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "dart.openDevTools": "flutter",
+  "git.confirmSync": false,
+  "workbench.iconTheme": "vscode-icons",
+  "editor.tabSize": 2,
+  "editor.renderControlCharacters": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "files.associations": {
+    "README": "markdown"
+  },
+  "workbench.colorTheme": "SynthWave '84",
+  "synthwave84.brightness": "0.5",
+  "json.schemas": [],
+  "editor.multiCursorModifier": "ctrlCmd",
+  "powershell.promptToUpdatePowerShell": false,
+  "editor.formatOnSave": true
+}

@@ -120,7 +120,7 @@ if (Test-Path "$env:APPDATA\Code") {
   }
 
   # Copy Config
-  if ($VSCodeConfig) { 
+  if ($VSCodeConfig -or $All) { 
     Copy-Item -Path ".\Config\VSCode\settings.json" -Destination "$env:APPDATA\Code\User" -Force
     if (-not (Test-Path "$env:APPDATA\Code\User")) {
       New-Item "$env:APPDATA\Code\User\snippets" -Path -ItemType Directory -Force
