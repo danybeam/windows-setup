@@ -121,11 +121,11 @@ if (Test-Path "$env:APPDATA\Code") {
 
   # Copy Config
   if ($VSCodeConfig -or $All) { 
-    Copy-Item -Path ".\Config\VSCode\settings.json" -Destination "$env:APPDATA\Code\User" -Force
+    Copy-Item -Path "$PSScriptRoot\Config\VSCode\settings.json" -Destination "$env:APPDATA\Code\User" -Force
     if (-not (Test-Path "$env:APPDATA\Code\User")) {
       New-Item "$env:APPDATA\Code\User\snippets" -Path -ItemType Directory -Force
     }
-    Copy-Item -Path  ".\Config\VSCode\snippets\*" "$env:APPDATA\Code\User\snippets" -Recurse -Force
+    Copy-Item -Path  "$PSScriptRoot\Config\VSCode\snippets\*" "$env:APPDATA\Code\User\snippets" -Recurse -Force
   }
 }
 else {
