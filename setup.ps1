@@ -86,7 +86,9 @@ function testChoco() {
 Write-Information "##### Chocolately #####"
 if (-not(testchoco)) {
   Write-Output "Seems Chocolatey is not installed, installing now"
-  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+  Set-ExecutionPolicy Bypass -Scope Process -Force;
+  [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
+  iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'));
 }
 else {
   Write-Output "Chocolatey Version $testchoco is already installed"
@@ -100,7 +102,7 @@ if (testchoco) {
   Write-Output "##### Chocolately => Git #####"
   choco install git
   Write-Output "##### Chocolately => VSCode #####"
-  choco install vscod
+  choco install vscode
 }
 else {
   Write-Output "Seems like chocolately was not properly installed, please install it manually and re-run the script"
@@ -170,10 +172,10 @@ if ($meld -or $All) {
 # oh my posh profile file
 if ($ForceOMPProfile -or $All) {
   Write-Output "##### Copying Oh-my-posh profile ####"
-  Copy-Item -Path "$PSScriptRoot\Config\Powershell\Microsoft.PowerShell_profile.ps1" -Destination "$env:HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+  Copy-Item -Path "$PSScriptRoot\Config\Powershell\Microsoft.PowerShell_profile.ps1" -Destination "$env:HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -Force
 }
 else {
-  Copy-Item -Path "$PSScriptRoot\Microsoft.PowerShell_profile.ps1" -Destination "$env:HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -Force
+  Copy-Item -Path "$PSScriptRoot\Config\Powershell\Microsoft.PowerShell_profile.ps1" -Destination "$env:HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" 
 }
 
 # Copy terminal settings file
@@ -182,7 +184,7 @@ if ($TerminalSettings -or $All) {
   Copy-Item -Path "$PSScriptRoot\Config\Windows terminal\settings.json" -Destination "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" -Force
 }
 
-Write-Output@"
+Write-Output @"
 
 ############### DISCLAIMER ###############
 
