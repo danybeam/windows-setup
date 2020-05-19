@@ -47,35 +47,6 @@ if ($h -or $help) {
 Write-Information "Initializing variables"
 # Global variables
 $testchoco = ""
-$VSCodeExtensions = @(
-  "alexisvt.flutter-snippets",
-  "CoenraadS.bracket-pair-colorizer-2",
-  "Dart-Code.dart-code",
-  "Dart-Code.flutter",
-  "DavidAnson.vscode-markdownlint",
-  "deerawan.vscode-dash",
-  "esbenp.prettier-vscode",
-  "esskar.vscode-flutter-i18n-json",
-  "ms-python.python",
-  "ms-vscode-remote.remote-wsl",
-  "ms-vscode.cpptools",
-  "ms-vscode.powershell",
-  "Nash.awesome-flutter-snippets",
-  "redhat.java",
-  "RobbOwen.synthwave-vscode",
-  "slevesque.vscode-autohotkey",
-  "slevesque.vscode-hexdump",
-  "VisualStudioExptTeam.vscodeintellicode",
-  "vscjava.vscode-java-debug",
-  "vscjava.vscode-java-dependency",
-  "vscjava.vscode-java-pack",
-  "vscjava.vscode-java-test",
-  "vscjava.vscode-maven",
-  "vscode-icons-team.vscode-icons",
-  "vscodevim.vim",
-  "will-shaw.ws-rainmeter",
-  "yzhang.markdown-all-in-one"
-)
 function testChoco() {
   $testchoco = choco -v
   return $testchoco
@@ -122,10 +93,6 @@ Install-Module oh-my-posh -Scope CurrentUser
 # Install vscode extensions
 Write-Output "##### Install VSCode Extensions ####"
 if (Test-Path "$env:APPDATA\Code") {
-  foreach ($item in $VSCodeExtensions) {
-    code --install-extension $item
-  }
-
   # Copy Config
   if ($VSCodeConfig -or $All) { 
     Copy-Item -Path "$PSScriptRoot\Config\VSCode\settings.json" -Destination "$env:APPDATA\Code\User" -Force
