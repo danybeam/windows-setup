@@ -77,7 +77,6 @@ if (testchoco) {
   Write-Output "##### Chocolately => VSCode #####"
   choco install vscode -y
   Write-Output "#### Starting VSCode for first time auto config ####"
-  start vscode://
   refreshenv
 }
 else {
@@ -173,6 +172,9 @@ Ubuntu (or any Linux distro for that matter)
 Please open an issue in the repo for more software that could be added to the installed programms or to this disclaimer list :)
 "@
 
+Import-Module posh-git
+Import-Module oh-my-posh
+Set-Theme Agnoster
 
 if ($selfDestruct) {
   Remove-Item $PSScriptRoot -Recurse -Force

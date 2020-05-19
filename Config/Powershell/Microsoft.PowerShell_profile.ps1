@@ -6,3 +6,4 @@ Set-Theme Agnoster # Personal favorite theme but more are available, check the o
 # ALL THIS ROOM FOR ACTIVITIES
 
 # Aliases
+Set-Alias -Name profile -Value code $PROFILE

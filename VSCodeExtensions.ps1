@@ -1,3 +1,4 @@
+code
 $VSCodeExtensions = @(
   "alexisvt.flutter-snippets",
   "CoenraadS.bracket-pair-colorizer-2",
