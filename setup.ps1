@@ -23,6 +23,7 @@ Write-Information "Script start"
 if (-not ($Host.Version.major -ge 6)) {
   Write-Output -Message "This script is intended for powershell version >=6.x.x please install that and run this from there"
 }
+Set-ExecutionPolicy Bypass
 
 if ($h -or $help) {
   Write-Output@"
@@ -99,12 +100,14 @@ else {
 Write-Output "##### Chocolately Instals #####"
 if (testchoco) {
   Write-Output "##### Chocolately => Windows terminal #####"
-  choco install microsoft-windows-terminal 
+  choco install microsoft-windows-terminal -y
   Write-Output "##### Chocolately => Git #####"
-  choco install git
+  choco install git -y
   Write-Output "##### Chocolately => VSCode #####"
-  choco install vscode
+  choco install vscode -y
+  Write-Output "#### Starting VSCode for first time auto config ####"
   start vscode://
+  refreshenv
 }
 else {
   Write-Output "Seems like chocolately was not properly installed, please install it manually and re-run the script"
@@ -202,6 +205,7 @@ Ubuntu (or any Linux distro for that matter)
 
 Please open an issue in the repo for more software that could be added to the installed programms or to this disclaimer list :)
 "@
+
 
 if ($selfDestruct) {
   Remove-Item $PSScriptRoot -Recurse -Force
