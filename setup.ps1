@@ -80,6 +80,7 @@ function testChoco() {
   return $testchoco
 }
 
+New-Item "$PSScriptRoot\Download" -ItemType Directory
 ####################### INSTALLS #######################################
 
 # Install chocolately
@@ -103,6 +104,7 @@ if (testchoco) {
   choco install git
   Write-Output "##### Chocolately => VSCode #####"
   choco install vscode
+  start vscode://
 }
 else {
   Write-Output "Seems like chocolately was not properly installed, please install it manually and re-run the script"
@@ -137,11 +139,8 @@ else {
   
 # Install Autohotkey
 if ($AHK -or $All) {
-  Write-Information "##### Install Autohotkey ####"
-  $url = "https://www.autohotkey.com/download/ahk-install.exe"
-  $output = "$PSScriptRoot\Download\ahk.exe"
-  (New-Object System.Net.WebClient).DownloadFile($url, $output)
-  Start-Process $output -Wait 
+  Write-Output "##### Install Autohotkey ####"
+  Start-Process "$PSScriptRoot\Installers\Autohotkey.exe" -Wait 
 }
 
 #Install 7zip
@@ -172,6 +171,7 @@ if ($meld -or $All) {
 # oh my posh profile file
 if ($ForceOMPProfile -or $All) {
   Write-Output "##### Copying Oh-my-posh profile ####"
+  New-Item -Path "$env:HOME\Documents\PowerShell" -ItemType Directory -Force
   Copy-Item -Path "$PSScriptRoot\Config\Powershell\Microsoft.PowerShell_profile.ps1" -Destination "$env:HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -Force
 }
 else {
