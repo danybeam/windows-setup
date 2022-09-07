@@ -29,6 +29,10 @@ winget install Microsoft.WindowsTerminal
 winget install Git.Git
 # install vscode
 winget install Microsoft.VisualStudioCode
+
+# install powertoys
+winget install Microsoft.PowerToys --source winget
+
 #install notion
 winget install Notion.Notion
 # install spotify does not work... yet?
