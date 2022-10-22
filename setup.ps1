@@ -35,6 +35,7 @@ winget install Microsoft.PowerToys --source winget
 
 #install notion
 winget install Notion.Notion
+winget install Obsidian.Obsidian
 # install spotify does not work... yet?
 # winget install Spotify.Spotify
 
