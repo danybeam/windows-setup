@@ -1,10 +1,14 @@
 # TODO arguments to decide what to install and what not
+# TODO Needs to download caskadya code nerd font or install it from folder
+# TODO Set powershell defaul font to caskadya code mono
+# TODO Set powershell to use ligatures
 
 # Minimal setup
 # install powershell
 winget install Microsoft.Powershell
 # install oh-my-posh
 winget install JanDeDobbeleer.OhMyPosh -s winget
+oh-my-posh config migrate glyphs --write
 
 # Configure oh my posh
 $Env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
@@ -34,8 +38,9 @@ winget install Microsoft.VisualStudioCode
 winget install Microsoft.PowerToys --source winget
 
 #install notion
-winget install Notion.Notion
+#winget install Notion.Notion
 winget install Obsidian.Obsidian
+winget install --id=Helix.Helix  -e
 # install spotify does not work... yet?
 # winget install Spotify.Spotify
 

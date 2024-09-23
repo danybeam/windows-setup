@@ -12,6 +12,7 @@
 
 # Oh-my-posh and fancy terminal
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/danybeam.omp.json"| Invoke-Expression
+oh-my-posh config migrate glyphs --write
 Import-Module -Name Terminal-Icons
 
 # Predictive text
