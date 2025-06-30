@@ -9,8 +9,8 @@ diff-editor = "vscode"
 merge-editor = "vscode"
 
 [user]
-name = "danybeam"
-email = "danybeam@gmail.com"
+name = ""
+email = ""
 
 [revset-aliases]
 HEAD = "@"
