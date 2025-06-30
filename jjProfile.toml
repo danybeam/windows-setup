@@ -1,0 +1,21 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[ui]
+default-command = "log"
+conflict-marker-style = "git"
+editor = "code.cmd --wait --new-window" # VS Code
+diff-instructions = false
+diff-editor = "vscode"
+merge-editor = "vscode"
+
+[user]
+name = "danybeam"
+email = "danybeam@gmail.com"
+
+[revset-aliases]
+HEAD = "@"
+
+[merge-tools.vscode]
+diff-invocation-mode = "file-by-file"
+edit-args = ["--wait", "--new-window", "--diff", "$left", "$right"]
+diff-args = ["--wait", "--new-window", "--diff", "$left", "$right"]
