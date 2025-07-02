@@ -9,11 +9,18 @@ diff-editor = "vscode"
 merge-editor = "vscode"
 
 [user]
-name = ""
-email = ""
+name = "danybeam"
+email = "danybeam@gmail.com"
+
+[aliases]
+# `jj l` shows commits on the working-copy commit's (anonymous) bookmark
+# compared to the `main` bookmark
+l = ["log", "-r", "(main..@):: | (main..@)-"]
+fwd = ["bookmark", "move", "--from", "main", "--to", "here"]
 
 [revset-aliases]
 HEAD = "@"
+here = "@"
 
 [merge-tools.vscode]
 diff-invocation-mode = "file-by-file"
