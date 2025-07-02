@@ -4,7 +4,7 @@
     "source": "cdn",
     "interval": "168h",
     "auto": false,
-    "notice": false
+    "notice": true
   },
   "blocks": [
     {
@@ -56,7 +56,8 @@
               "Deleted": "D: %d",
               "Modified": "M: %d",
               "Moved": "Mv: %d"
-            }
+            },
+            "ignore_working_copy": false
           },
           "template": "jj @{{ .ChangeID }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}",
           "foreground": "#193549",
@@ -65,7 +66,7 @@
           "type": "jujutsu",
           "style": "powerline",
           "background_templates": [
-            "{{if (.Working.Changed}}#9a3bff{{end}}"
+            "{{if (.Working.Changed)}}#bd67eb{{end}}"
           ]
         },
         {
