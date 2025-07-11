@@ -1,22 +1,14 @@
-# TODO miniscript to chose one each day
-# saving for later
-# atomic.omp.json
-# cert.omp.json
-# clean-detailed.omp.json
-# easy-term.omp.json
-# free-ukraine.omp.json
-# if_tea.omp.json
-# markbull.omp.json
-# sonicboom_light.omp.json
-# velvet.omp.json
-
+# This is intended to be used with Chris Titus Powershell profile
+# This is a (hopefully) temporary workaround to the fact that his profile executes last, therefore overrides my settings
+# You need to make sure PERSONAL_SCRIPT_LOCK is set up in the environment variables... or set it here.
+if(-not (Test-Path $env:PERSONAL_SCRIPT_LOCK))
+{
+Set-Content -Path $env:PERSONAL_SCRIPT_LOCK -Value "not empty"
+Add-Content -Path $PROFILE -Value @'
 # Oh-my-posh and fancy terminal
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/danybeam.omp.json"| Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/danybeam.omp.json" | Invoke-Expression
 oh-my-posh config migrate glyphs --write
 Import-Module -Name Terminal-Icons
-
-# better cd'ing
-Import-Module z
 
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
@@ -49,8 +41,10 @@ Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 Invoke-Expression (& { (jj util completion power-shell | Out-String) })
+'@
 
-function Update-Powershell {
-  param ()
-  iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
+function Update-MyProfile {
+  Remove-Item $env:PERSONAL_SCRIPT_LOCK
+  Update-Profile
+}
 }
