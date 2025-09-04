@@ -210,7 +210,7 @@ keybindings:
   - commands: ['wm-enable-binding-mode --name resize']
     bindings: ['alt+r']
 
-  # Disables window management and all other keybindings until alt+shift+p
+  # Disables window management and all other keybindings until alt+shift+y
   # is pressed again.
   - commands: ['wm-toggle-pause']
     bindings: ['alt+shift+p']
@@ -260,7 +260,7 @@ keybindings:
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
   - commands: ['shell-exec wt']
-    bindings: ['alt+enter']
+    bindings: ['alt+shift+t']
 
   # Focus the next/previous active workspace defined in `workspaces` config.
   - commands: ['focus --next-active-workspace']
