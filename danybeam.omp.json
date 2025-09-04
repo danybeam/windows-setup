@@ -50,14 +50,14 @@
           "properties": {
             "cache_duration": "none",
             "fetch_status": true,
+            "ignore_working_copy": false,
             "newprop": "\ueff1 ",
             "status_formats": {
               "Added": "A: %d",
               "Deleted": "D: %d",
               "Modified": "M: %d",
               "Moved": "Mv: %d"
-            },
-            "ignore_working_copy": false
+            }
           },
           "template": "jj @{{ .ChangeID }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}",
           "foreground": "#193549",
@@ -71,12 +71,13 @@
         },
         {
           "properties": {
-            "branch_icon": "\ue725 ",
+            "branch_icon": " \ue725 ",
             "cache_duration": "none",
+            "fetch_bare_info": true,
             "fetch_status": true,
             "fetch_upstream_icon": true
           },
-          "template": " {{ if not .Segments.Jujutsu }}{{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }}{{else}}{{ .UpstreamIcon }} \ue725 Collocated{{ end }}",
+          "template": " {{ if not .Segments.Jujutsu }}{{ .UpstreamIcon }} {{ .HEAD }} {{if or (gt .Ahead 0) (gt .Behind 0)}}{{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }}{{else}}{{ .UpstreamIcon }} \ue725 Collocated{{ end }}",
           "foreground": "#011627",
           "powerline_symbol": "\ue0b0",
           "background": "#FFFB38",
