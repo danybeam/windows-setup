@@ -1,0 +1,19 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[alias]
+	bcl = "!f() { \
+		git clone -v --bare --progress -- $1 $2; \
+		cd ./$2; \
+		git config remote.origin.fetch \"+refs/heads/*:refs/remotes/origin/*\"; \
+		if [[ $* == *--lfs* ]] then \
+			git lfs install; \
+			git lfs fetch; \
+			git lfs checkout; \
+		fi \
+	}; \
+	f $*;#"
+[core]
+	editor = hx
