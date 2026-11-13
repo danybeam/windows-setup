@@ -1,0 +1,43 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "shell",
+    "display",
+    "de",
+    "wm",
+    "font",
+    "cursor",
+    "terminal",
+    "terminalfont",
+    "cpu",
+    "gpu",
+    "memory",
+    "swap",
+    "disk",
+    "localip",
+    "battery",
+    "poweradapter",
+    "locale",
+    "break",
+    "colors"
+  ],
+  "logo": {
+    "source":"Aperture",
+    "color": {
+      "1": "#F07716",
+      "2": "#F07716",
+      "3": "#F07716",
+      "4": "#F07716",
+      "5": "#F07716",
+      "6": "#F07716",
+      "7": "#F07716",
+      "8": "#F07716"
+    }
+  }
+}
